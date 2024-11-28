@@ -1,0 +1,136 @@
+<!-- Message: Success regist products -->
+<div id="message"></div>
+
+<div class="main-container">
+    <button type="button" id="show-sidebar"><i class="fa fa-phone" aria-hidden="true"
+            onclick="openSidebar()"></i></button>
+    <div id="sidebar" class="main-container__sidebar">
+        <span class="close-btn" onclick="closeSidebar()">&times;</span>
+
+        <h2 class="text-center" style="color: #8e724b">Thông tin liên hệ</h2>
+        <form id="sidebar-contact-form" action="/lien-he" method="post">
+            <div class="form-group user">
+                <input type="text" id="sidebar-name" name="name" placeholder="Tên khách hàng" required>
+                <select name="gender" id="sidebar-gender" required>
+                    <option value="">Giới tính</option>
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                    <option value="Khác">Khác</option>
+                </select>
+            </div>
+            <input type="tel" id="sidebar-phone" name="phone" placeholder="Số điện thoại" required>`
+            <input type="email" id="sidebar-email" name="email" placeholder="Email" required>`
+            <input id="sidebar-submit" type="submit" value="Gửi">
+        </form>
+        <div class="image-container">
+            <img src="/assets/image/POP-UP.png" alt="An awesome image">
+        </div>
+    </div>
+    <div class="main-container__content">
+        <!-- Leaderboard -->
+        <section id="leaderboard">
+            <img src="/assets/image/Leaderboard.png" alt="Leaderboard" width="100%" height="auto">
+        </section>
+
+        <!-- Products -->
+        <section id="products">
+            <div id="cam-thao" class="products-card">
+                <div class="products-card__image">
+                    <a href="/product/infoCamThao">
+                        <img src="/assets/image/BST_Nhien/Cam-Thảo.png" alt="Cam Thảo">
+                    </a>
+                </div>
+                <div class="products-card__buy">
+                    <h2>Giá: 179.000đ</h2>
+                    <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div id="ca-phe" class="products-card">
+                <div class="products-card__image">
+                    <a href="/product/infoCaPhe">
+                        <img src="/assets/image/BST_Nhien/Cà-Phê.png" alt="Cà Phê">
+                    </a>
+                </div>
+                <div class="products-card__buy">
+                    <h2>Giá: 159.000đ</h2>
+                    <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div id="que-hoi" class="products-card">
+                <div class="products-card__image">
+                    <a href="/product/infoQueHoi">
+                        <img src="/assets/image/BST_Nhien/Quế-Hồi.png" alt="Quế Hồi">
+                    </a>
+                </div>
+                <div class="products-card__buy">
+                    <h2>Giá: 169.000đ</h2>
+                    <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- Video -->
+<section id="video-container">
+    <video width="600" height="auto" autoplay loop muted>
+        <source src="/assets/videos/VideoSP.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</section>
+
+<!-- Modal -->
+<div class="modal js-modal">
+    <div id="message"></div>
+    <div class="modal-container js-modal-container">
+        <div class="close-button js-close-button">
+            <i class="close-icon ti-close"></i>
+        </div>
+
+        <!-- Modal Heading -->
+        <div class="modal-heading">
+            <i class="ti-bag"></i>
+            Mua sản phẩm
+        </div>
+        <!-- Modal body -->
+        <div id="product-infomation" class="modal-body show-info">
+
+        </div>
+
+        <form id="modal-form" method="POST" action="/product/send/" class="modal-body"
+            onsubmit="return checkBeforeBuy(event)">
+            <!-- Input Quatity -->
+            <label for="modal-ip-quatity" class="modal-label">
+                <i class="shoping-icon ti-shopping-cart"></i>
+                Số lượng sản phẩm
+            </label>
+            <input type="number" class="modal-input" name="productQuantity" placeholder="Nhập số lượng..."
+                id="modal-ip-quatity">
+
+            <!-- Input name -->
+            <label for="modal-ip-username" class="modal-label">
+                <i class="user-icon ti-user"></i>
+                Tên khách hàng
+            </label>
+            <input type="text" class="modal-input" name="name" placeholder="Nhập họ và tên..." id="modal-ip-username">
+
+            <!-- Input phone -->
+            <label for="modal-ip-userphone" class="modal-label">
+                <i class="user-icon ti-mobile"></i>
+                Số điện thoại
+            </label>
+            <input type="tel" class="modal-input" name="phone" placeholder="Nhập số điện thoại..."
+                id="modal-ip-userphone">
+
+            <!-- Input address -->
+            <label for="modal-ip-address" class="modal-label">
+                <i class="user-icon ti-location-pin"></i>
+                Địa chỉ
+            </label>
+            <input type="text" class="modal-input" name="address" placeholder="Nhập địa chỉ..." id="modal-ip-address">
+
+            <!-- Button corfirm -->
+            <input type="submit" id="corfirm" value="ĐẶT HÀNG">
+        </form>
+    </div>
+</div>

@@ -1,0 +1,165 @@
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+	<style>
+		body {
+			background-color: #F2E9E1;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		th,
+		td {
+			border: 2px solid #ddd;
+			padding: 8px;
+			text-align: left;
+		}
+
+		th {
+			background-color: #f2f2f2;
+		}
+
+		tr {
+			background-color: #ceb798;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f9f9f9;
+		}
+
+		tr:hover {
+			background-color: #f1f1f1;
+		}
+	</style>
+</head>
+
+<body>
+	<section style="margin: 80px 40px; min-width: 1000px">
+		<h3 style="color: #8e724b">Thông tin khách hàng đã đặt mua BST</h3>
+
+		<table>
+			<thead>
+				<tr>
+					<th>STT</th>
+					<th>Tên khách hàng</th>
+					<th>Số điện thoại</th>
+					<th>Email</th>
+					<th>Địa chỉ</th>
+					<th>Quận/Huyện</th>
+					<th>Tỉnh/Thành phố</th>
+					<th>Sản phẩm đã chọn</th>
+					<th>Số lượng</th>
+					<th>Thời gian đặt hàng</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each RegistCollectHandled}}
+				<tr>
+					<td>{{ counter @index }}</td>
+					<td>{{ this.name }}</td>
+					<td>{{ this.phone }}</td>
+					<td>{{ this.email }}</td>
+					<td>{{ this.address }}</td>
+					<td>{{ this.district }}</td>
+					<td>{{ this.province }}</td>
+					<td>{{ this.productSelected }}</td>
+					<td>{{ this.productQuantity }}</td>
+					<td>{{ this.createAt }}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+
+		<h3 style="color: #8e724b; margin-top: 80px">Thông tin khách hàng đã đặt mua sản phẩm (SL ít)</h3>
+
+		<table>
+			<thead>
+				<tr>
+					<th>STT</th>
+					<th>Tên khách hàng</th>
+					<th>Số điện thoại</th>
+					<th>Địa chỉ</th>
+					<th>Sản phẩm đã chọn</th>
+					<th>Số lượng</th>
+					<th>Thời gian đặt hàng</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each RegistProductHandled}}
+				<tr>
+					<td>{{ counter @index }}</td>
+					<td>{{ this.name }}</td>
+					<td>{{ this.phone }}</td>
+					<td>{{ this.address }}</td>
+					<td>{{ this.productSelected }}</td>
+					<td>{{ this.productQuantity }}</td>
+					<td>{{ this.createAt }}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+
+		<h3 style="color: #8e724b; margin-top: 80px">Danh sách khách hàng gửi yêu cầu liên hệ</h3>
+
+		<table>
+			<thead>
+				<tr>
+					<th>STT</th>
+					<th>Tên khách hàng</th>
+					<th>Giới tính</th>
+					<th>Số điện thoại</th>
+					<th>Email</th>
+					<th>Thời gian yêu cầu</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each ContactHandled}}
+				<tr>
+					<td>{{ counter @index }}</td>
+					<td>{{ this.name }}</td>
+					<td>{{ this.gender }}</td>
+					<td>{{ this.phone }}</td>
+					<td>{{ this.email }}</td>
+					<td>{{ this.createAt }}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+
+		<h3 style="color: #8e724b; margin-top: 80px">Tài khoản khách hàng</h3>
+
+		<table>
+			<thead>
+				<tr>
+					<th>STT</th>
+					<th>Tên đăng nhâp</th>
+					<th>Email</th>
+					<th>Mật khẩu</th>
+					<th>Thời gian tạo</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each UserHandled}}
+				<tr>
+					<td>{{ counter @index }}</td>
+					<td>{{ this.username }}</td>
+					<td>{{ this.email }}</td>
+					<td>{{ this.password }}</td>
+					<td>{{ this.createAt }}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+			crossorigin="anonymous"></script>
+	</section>
+</body>
+
+</html>
